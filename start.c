@@ -12,6 +12,6 @@ int main(void)
         
         sum += (int)num[i]-'0';
     }
-    printf("%d",sum)
+    printf("%d",sum);
     return 0;
 }
