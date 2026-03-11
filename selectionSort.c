@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-const int SIZE = 10;
+#define SIZE 10
 
 int main() {
-    int arr[10] = {2,54,1,4,12,32,12,23,12,65};
+    int arr[SIZE] = {2,54,1,4,12,32,12,23,12,65};
     
     for(int i = 0; i < SIZE; i++){
         int min = i;
