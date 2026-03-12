@@ -3,41 +3,51 @@
 void Findvowel(int ch){
     switch (ch)
     {
-    case 0x61:
-        printf("vowel ");
-        break;
-    
-    default:
-        break;
+        case 'a':
+        case 'e':
+        case 'o':
+        case 'i':
+        case 'u':
+        case 'A':
+        case 'E':
+        case 'O':
+        case 'I':
+        case 'U':
+            printf("vowel ");
+            break;
+        
+        default:
+            break;
     }
 }
 
 
 void Whatis(int ch)
 {
-    if((ch>'a'&& ch<'z')||(ch>'Z'|| ch<'Z')){
+    if((ch >= 'a'&& ch <= 'z')||(ch >= 'A' && ch <= 'Z')){
         printf("alphabet, ");
-        if(ch>'a'&& ch<'z')
+        if(ch >= 'a' && ch <= 'z')
             printf("lower-case, ");
-        if(ch>'Z'|| ch<'Z')
+        if(ch >= 'A'&& ch <= 'Z')
             printf("upper-case ");
         Findvowel(ch);
     }
 
-    if(ch>'!'&& ch<'/')
+    if(ch >= '!' && ch <= '/')
         printf("symbol (not decimal number, not alphabet)");
     
-    if(ch>'0'&& ch<'9')
+    if(ch >= '0'&& ch <= '9')
         printf("decimal number");
     
+    printf("\n");
 }
 
 int main(void){
-    int ch;
+    char ch;
     
-    while(ch!='.'){
-        printf("Input a character :");
-        scanf("%d",&ch);
+    while(ch != '.'){
+        printf("Input a character : ");
+        scanf("%c", &ch);
         Whatis(ch);
         
     }
