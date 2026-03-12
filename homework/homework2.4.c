@@ -5,10 +5,12 @@ enum WEEKDAY { SUN, MON, TUE, WED, THR, FRI, SAT };
 
 //유년 계산 함수
 bool leap_year(int year){
-    if((year%4==0 && year%100 !=0)||(year%400==0))
-        return true;   //윤년일시 1 반환
-    else
-        return false;  //윤년이 아니면 0 반환
+    // if((year%4==0 && year%100 !=0)||(year%400==0))
+    //     return true;   //윤년일시 1 반환
+    // else
+    //     return false;  //윤년이 아니면 0 반환
+
+    return (year%4==0 && year%100 !=0) || (year%400==0) ;
 }
 
 //1년 1월 1일 부터 입력한 날짜까지 총 일수 계산 함수
