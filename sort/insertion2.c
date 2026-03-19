@@ -1,27 +1,35 @@
-//더 직관적인 코드
-
 #include <stdio.h>
+#include <sys/time.h>
 
-#define SIZE 10
+long long Fibo_SR(int n)
+{
+    if (n == 0 || n == 1)
+        return n;
+    return Fibo_SR(n - 1) + Fibo_SR(n - 2);
+}
 
-int main() {
-    int arr[SIZE] = {332,1345,12,4,3223,54,12,34,2,7};
+int main(void)
+{
+    long long fibo_n;
+    struct timeval t1, t2;
+    double elapsed_time_ms;
 
-    for(int i = 1; i < SIZE; i++) { // i=1인 이유는 두 번째 항목부터 보기 때문
-        for(int j = i; j > 0; j--) { // j=i에서 시작해 숫자를 점점 줄여가며 비교한다
-            if(arr[j] < arr[j-1]) { //비교
-                //바꾸기
-                int temp = arr[j];
-                arr[j] = arr[j-1];
-                arr[j-1] = temp;
-            } else {
-                break;
-                //break인 이유는 2번째부터 쭉 오면서 그 앞은 이미 정렬되어 있기 때문
-            }
-        }
+    printf("Fibonacci Series :\n");
+
+    for (int n = 0; n <= 40; n++) { // 50은 너무 느림
+        gettimeofday(&t1, NULL);
+
+        fibo_n = Fibo_SR(n);
+
+        gettimeofday(&t2, NULL);
+
+        elapsed_time_ms =
+            (t2.tv_sec - t1.tv_sec) * 1000.0 +
+            (t2.tv_usec - t1.tv_usec) / 1000.0;
+
+        printf("Fibo(%3d) = %20lld, took %10.3lf ms\n",
+               n, fibo_n, elapsed_time_ms);
     }
 
-    for(int i = 0; i < SIZE; i++){
-        printf("%d ", arr[i]);
-    }
+    return 0;
 }
