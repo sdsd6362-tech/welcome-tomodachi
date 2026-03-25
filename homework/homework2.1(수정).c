@@ -1,3 +1,12 @@
+/*  Homework 2.1 - BinarySearch
+*   Date : 2026 - 03 - 17
+*   Author : Park soen gyu
+* : Update List (Date) : 2026 - 03 - 17*/
+
+
+
+
+
 #include <stdio.h>
 
 void Findvowel(int ch){

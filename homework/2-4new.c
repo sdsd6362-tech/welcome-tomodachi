@@ -16,6 +16,7 @@ int Cul_day(int year, int month, int day){
 
     for(int i = 1; i < year; i++) {
         ret = leap_year(i) ? ret + 366 : ret + 365;
+        //ret += 365 + leap_year(i)
     }
 
     int arr_day[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
@@ -50,7 +51,7 @@ void printCalendar(int year, int month, int day){
     int arr_day[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
     if(leap_year(year)) arr_day[2] = 29;
     
-    int weekday = Cul_day(year, month, 1) % DAYS_PER_WEEK;
+    int weekday = Cul_day(year, month, 1) % DAYS_PER_WEEK;  //현재 날짜의 달력의 1일을 무슨 요일인지 지정(0~6)
 
     printf(">>>>>>>> %s of %d <<<<<<<<\n", monthName[month], year);
     printf("=====================================\n");
@@ -62,12 +63,12 @@ void printCalendar(int year, int month, int day){
         printf("     ");
     }
     for(int day = 1; day < arr_day[month]; day++) {
-        if(weekday % DAYS_PER_WEEK == 0){
-            printf("\n");
-            weekday = 0;
+        if(weekday % DAYS_PER_WEEK == 0){                   
+            printf("\n");                       
+            weekday = 0;                        //나머지 연산이기 때문에 사실상 필요가 없다.
         }
-        printf("%5d", day);
-        weekday++;
+        printf("%5d", day);                     
+        weekday++;                             //1일 부터 계속 1씩 증가.
     }
     printf("\n-------------------------------------\n");
 
